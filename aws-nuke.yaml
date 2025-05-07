@@ -12,10 +12,13 @@ accounts:
   "386145735201":
     filters:
       IAMUser:
-      - "meyerkev"
+        - "meyerkev"
       IAMUserAccessKey:
-      - "meyerkev -> AKIAVT2AUKIQXPIM5JGV"
+        - "meyerkev:AKIAVT2AUKIQXPIM5JGV"
       IAMUserPolicyAttachment:
-      - "meyerkev -> AdministratorAccess"
+        - "meyerkev:AdministratorAccess"
       S3Bucket:
-      - "meyerkev-terraform-state"
+        - "meyerkev-terraform-state"
+      S3Object:
+        - "meyerkev-terraform-state/*"
+
