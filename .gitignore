@@ -38,3 +38,7 @@ terraform.rc
 
 # Ignore tfplan files
 *.tfplan
+
+# AWS nuke tee output
+nuke.log
+nuke.log.*

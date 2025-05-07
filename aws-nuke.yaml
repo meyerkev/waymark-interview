@@ -14,11 +14,14 @@ accounts:
       IAMUser:
         - "meyerkev"
       IAMUserAccessKey:
-        - "meyerkev:AKIAVT2AUKIQXPIM5JGV"
+        - type: glob
+          value: "meyerkev -> *"
       IAMUserPolicyAttachment:
-        - "meyerkev:AdministratorAccess"
+        - "meyerkev -> AdministratorAccess"
       S3Bucket:
-        - "meyerkev-terraform-state"
+        - type: exact
+          value: "s3://meyerkev-terraform-state"
       S3Object:
-        - "meyerkev-terraform-state/*"
+        - type: glob
+          value: "s3://meyerkev-terraform-state/*"
 
