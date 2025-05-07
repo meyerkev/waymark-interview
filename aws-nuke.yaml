@@ -1,0 +1,21 @@
+
+regions:
+- us-east-1
+- us-east-2
+- global
+
+# Mandated by the tool
+blocklist:
+- "000000000000"
+
+accounts:
+  "386145735201":
+    filters:
+      IAMUser:
+      - "meyerkev"
+      IAMUserAccessKey:
+      - "meyerkev -> AKIAVT2AUKIQXPIM5JGV"
+      IAMUserPolicyAttachment:
+      - "meyerkev -> AdministratorAccess"
+      S3Bucket:
+      - "meyerkev-terraform-state"
