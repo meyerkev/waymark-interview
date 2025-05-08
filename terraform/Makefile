@@ -45,10 +45,12 @@ enable-uploads:  ## Enable uploads to the bucket
 
 .PHONY: upload
 upload: ## Upload a file to the bucket
-	@export AWS_PROFILE=$(DEFAULT_AWS_PROFILE); \
+	@export OLD_AWS_PROFILE=$$AWS_PROFILE; \
+	export AWS_PROFILE=$(DEFAULT_AWS_PROFILE); \
 	cmd=$$(terraform output -raw aws_s3_upload_command); \
 	echo "Running: $$cmd"; \
-	eval "$$cmd"
+	export AWS_PROFILE=$$OLD_AWS_PROFILE; \
+	eval "$$cmd"; \
 
 .PHONY: cleanup
 cleanup:  ## Cleanup everything created by this setup

@@ -30,7 +30,7 @@ EOF
 }
 
 output "aws_s3_upload_command" {
-  value = "echo 'sample text' > sample.txt && aws s3 rm s3://${module.s3_bucket.s3_bucket_id}/sample.txt && aws s3 cp sample.txt s3://${module.s3_bucket.s3_bucket_id}/sample.txt"
+  value = "echo 'sample text' > sample.txt && aws s3 rm s3://${module.s3_bucket.s3_bucket_id}/sample.txt && aws s3 cp sample.txt s3://${module.s3_bucket.s3_bucket_id}/sample.txt --sse aws:kms --sse-kms-key-id ${aws_kms_key.s3.arn}"
 }
 
 output "aws_s3_delete_command" {
