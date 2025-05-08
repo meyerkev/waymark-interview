@@ -15,7 +15,6 @@ module "lambda_function" {
       {
         Action = [
           "s3:ListBucket",
-          "s3:HeadObject",
           # You wouldn't think that HeadObject would mandate GetObject, but it does.
           "s3:GetObject"
         ]
@@ -23,6 +22,19 @@ module "lambda_function" {
         Resource = [
           module.s3_bucket.s3_bucket_arn,
           "${module.s3_bucket.s3_bucket_arn}/*"
+        ]
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "kms:GenerateDataKey",
+          "kms:Decrypt",
+          "kms:Encrypt",
+          "kms:ReEncrypt*",
+          "kms:CreateGrant"
+        ]
+        Resource = [
+          aws_kms_key.s3.arn
         ]
       }
     ]

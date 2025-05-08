@@ -95,7 +95,9 @@ Ideally open a new terminal and run this:
 
 ```shell
 # Configure upload configuration
-# This will set the AWS_PROFILE variable and TODO: I haven't really setup the cleanup yet
+# This will set the AWS_PROFILE variable to use the IAM user
+# Hence why we need to set the DEFAULT_AWS_PROFILE up above
+# if we're not using the default profile 
 eval $(make enable-uploads)
 
 # Open Cloudwatch and Lambda monitoring
